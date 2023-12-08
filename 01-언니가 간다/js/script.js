@@ -5,11 +5,19 @@ $(function () {
   const $girl = $('.girl');
 
   // 크기를 구해오는 제이쿼리 메서드 : outerHeight()
-  const windowHeight = $window.outerHeight();
-  const documentHeight = $document.outerHeight();
+  let windowHeight = $window.outerHeight();
+  let documentHeight = $document.outerHeight();
 
   // 스크롤 영역의 (세로)크기
-  const scrollHeight = documentHeight - windowHeight;
+  let scrollHeight = documentHeight - windowHeight;
+
+  // 브라우저 창이 조절될 때
+  $window.on('resize', function () {
+    windowHeight = $window.outerHeight();
+    documentHeight = $document.outerHeight();
+    scrollHeight = documentHeight - windowHeight;
+    console.log(scrollHeight);
+  });
 
   // 스크롤이 발생하면
   $window.on('scroll', function () {
