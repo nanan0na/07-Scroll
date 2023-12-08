@@ -23,6 +23,9 @@ $(function () {
   $window.on('resize', function () {
     getHeight();
     console.log(scrollHeight);
+
+    // 스크롤 이벤트를 강제로 발생시킴 --> 최종 언니 위치 수정
+    $window.trigger('scroll');
   });
 
   // 스크롤이 발생하면
