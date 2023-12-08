@@ -3,6 +3,7 @@ $(function () {
   const $window = $(window); // scroll작동이니까 window 불러오기
   const $document = $(document);
   const $girl = $('.girl');
+  const $puppy = $('.puppy');
 
   // 전역변수로 선언
   let windowHeight = 0;
@@ -38,6 +39,7 @@ $(function () {
 
     // $progressBar의 width로 적용(%)
     $girl.css('left', percent);
+    $puppy.css('left', percent);
 
     // 마우스 휠 조작했을 때
     $window.on('wheel keydown', function (e) {
@@ -46,9 +48,11 @@ $(function () {
       if (e.originalEvent.deltaY < 0 || e.keyCode === 38) {
         // 휠을 올렸을 때
         $girl.css('transform', 'rotateY(180deg)');
+        $puppy.css('transform', 'rotateY(0deg)');
       } else if (e.originalEvent.deltaY > 0 || e.keyCode === 40) {
         // 휠을 내렸을 때
         $girl.css('transform', 'rotateY(0deg)');
+        $puppy.css('transform', 'rotateY(180deg)');
       }
     });
   });
